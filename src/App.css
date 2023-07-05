@@ -1,5 +1,16 @@
 .App {
   text-align: center;
+  font-size: 3rem;
+  margin-top: 15rem;
+}
+
+button {
+  font-size: 25px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  background-color: #66ff99;
+  cursor: pointer;
 }
 
 .App-logo {
