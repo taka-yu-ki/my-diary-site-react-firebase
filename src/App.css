@@ -1,10 +1,17 @@
 .App {
   text-align: center;
   font-size: 3rem;
-  margin-top: 15rem;
+  margin-top: 0rem;
 }
 
-button {
+.App-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.authentication {
   font-size: 25px;
   padding: 10px 20px;
   border: none;
