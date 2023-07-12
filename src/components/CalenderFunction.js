@@ -2,24 +2,24 @@ import React, { useState } from "react";
 import Calender from "react-calendar";
 import "../Calendar.css";
 import { useNavigate } from "react-router-dom";
-// import { db } from "../firebase";
-// import { collection, getDocs } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
+import { db, auth } from "../firebase";
 
 const CalenderFunction = () => {
   const [value, onChange] = useState(new Date());
   const navigate = useNavigate();
 
-  // const [diaries, setDiaries] = useState([]);
+  const handleButtonClick = async (date) => {
+    const formattedDate = date.toISOString().slice(0, 10).replace(/-/g, "");
+    const userId = auth.currentUser.uid;
+    const ref = doc(db, `users/${userId}/diaries/${formattedDate}`);
+    const docSnap = await getDoc(ref);
 
-  // useEffect(() => {
-  //   const diaryDate = collection(db, "diaries");
-  //   getDocs(diaryDate).then((snapShot) => {
-  //     setDiaries(snapShot.docs.map((doc) => ({ ...doc.data() })));
-  //   });
-  // });
-
-  const handleButtonClick = () => {
-    navigate("/diaryPage");
+    if (docSnap.exists()) {
+      navigate("/DiaryPage", { state: { diary: docSnap.data() } });
+    } else {
+      navigate("/CreateDiary", { state: { date: date } });
+    }
   };
   return (
     <div>
