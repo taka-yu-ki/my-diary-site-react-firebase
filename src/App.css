@@ -1,7 +1,5 @@
 .App {
   text-align: center;
-  font-size: 3rem;
-  margin-top: 0rem;
 }
 
 .App-container {
@@ -12,12 +10,17 @@
 }
 
 .authentication {
-  font-size: 25px;
+  font-size: 20px;
+  color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 30px;
-  background-color: #66ff99;
+  background-color: #555;
   cursor: pointer;
+}
+
+.authentication:hover {
+  background-color: #333;
 }
 
 .diary-form {
@@ -86,4 +89,59 @@ button[type="submit"] {
 .diary-text {
   font-size: 16px;
   line-height: 1.5;
+}
+
+.header {
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  background-color: #f2f2f2;
+}
+
+.logo {
+  margin-left: 16px;
+}
+.header p {
+  margin: 0;
+}
+
+.signOut {
+  margin-right: 16px;
+}
+
+.footer {
+  display: flex;
+  height: 200px;
+  text-align: center;
+  font-size: 15px;
+  padding: 32px;
+  color: #777;
+  background-color: #c0c0c0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.footer p {
+  margin-right: 20px;
+}
+
+.footer ul {
+  display: flex;
+  padding: 0;
+  list-style: none;
+}
+
+.footer li {
+  margin-right: 20px;
+}
+
+.footer a {
+  color: #777;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #000;
 }

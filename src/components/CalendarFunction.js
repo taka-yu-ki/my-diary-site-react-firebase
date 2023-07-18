@@ -55,6 +55,20 @@ const CalendarFunction = () => {
     }
   };
 
+  const addClassName = ({ date, view }) => {
+    const day = String(date.getDate() - 1).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    const id = `${year}${month}${day}`;
+    const selectedDiary = diaryData.find((diary) => diary.id === id);
+
+    if (view === "month" && selectedDiary) {
+      return "display-diary-tile";
+    } else {
+      return "create-diary-tile";
+    }
+  };
+
   return (
     <div>
       <h2>カレンダー日記</h2>
@@ -63,6 +77,7 @@ const CalendarFunction = () => {
         value={value}
         onClickDay={handleButtonClick}
         tileContent={checkDiary}
+        tileClassName={addClassName}
       />
     </div>
   );

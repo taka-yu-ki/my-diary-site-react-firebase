@@ -120,7 +120,7 @@
 }
 
 .react-calendar__tile--now {
-  background: #ffff76;
+  background: #ffffcc;
 }
 
 .react-calendar__tile--now:enabled:hover,
@@ -128,13 +128,13 @@
   background: #ffffa9;
 }
 
-.react-calendar__tile--hasActive {
+/* .react-calendar__tile--hasActive {
   background: #76baff;
-}
+} */
 
 .react-calendar__tile--hasActive:enabled:hover,
 .react-calendar__tile--hasActive:enabled:focus {
-  background: #a9d4ff;
+  background: #8ef1ff;
 }
 
 .react-calendar__tile--active {
@@ -153,7 +153,6 @@
 /*追加*/
 
 .react-calendar__month-view__days__day {
-  text-align: left;
   border: 1px solid #000; /* ボーダースタイルを指定 */
 }
 
@@ -163,7 +162,7 @@
   left: 0;
 }
 
-.react-calendar__tile::before {
+.create-diary-tile::before {
   content: "+";
   position: absolute;
   top: 50%;
@@ -176,10 +175,10 @@
   transition: opacity 0.2s ease-in-out;
 }
 
-.react-calendar__tile:hover::before {
+.create-diary-tile:hover::before {
   opacity: 1;
 }
 
-.react-calendar__tile--hasActive::before {
-  content: attr(data-title);
+.display-diary-tile {
+  background-color: #2dff57;
 }

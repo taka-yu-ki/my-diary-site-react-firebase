@@ -3,16 +3,17 @@ import SignIn from "./components/SignIn";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
 import CalendarFunction from "./components/CalendarFunction";
-import SignOut from "./components/SignOut";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [user] = useAuthState(auth);
   return (
     <div className="App">
+      <Header />
       {user && user.uid === auth.currentUser.uid ? (
         <div>
           <CalendarFunction />
-          <SignOut />
         </div>
       ) : (
         <>
@@ -20,6 +21,7 @@ const App = () => {
           <SignIn />
         </>
       )}
+      <Footer />
     </div>
   );
 };
