@@ -183,3 +183,128 @@
 .footer a:hover {
   color: #000;
 }
+
+/* TodoFunction */
+
+.todo {
+  width: 90%;
+  max-width: 100%;
+  margin: 50px auto;
+  background: white;
+  border: 1px solid #a0a096;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.125em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.task_lists {
+  width: 80%;
+  height: 450px;
+  margin: 20px auto;
+  background-color: #fff8dc;
+}
+
+.task_list_container {
+  list-style: none;
+  width: 90%;
+  padding: 0;
+  margin: 0 auto;
+  max-height: 400px; /* 表示する最大の高さを指定 */
+  overflow-y: scroll; /* 縦方向にスクロールできるようにする */
+}
+
+/* ToDoアイテム */
+.task_list {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  margin-bottom: 8px;
+  background-color: #e0ffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.task_list li {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.task_list input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.5);
+  background-color: gray;
+}
+
+.task_list p {
+  margin: 0;
+  flex-grow: 1;
+}
+
+.task_list button {
+  padding: 8px 16px;
+  margin-left: 8px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* フォーム */
+.task_form {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.task_value {
+  width: 70%;
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.task_submit {
+  padding: 6px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+/* ToDoフォーム */
+
+.task_submit:hover {
+  background-color: #0056b3;
+}
+
+/* 編集中のinputタグ */
+.task_list form {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.task_list input[type="text"] {
+  flex-grow: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+}
+
+.completed {
+  opacity: 0.5;
+}
+
+.completed .task_display {
+  text-decoration: line-through;
+}

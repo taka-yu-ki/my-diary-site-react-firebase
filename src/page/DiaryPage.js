@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "../App.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const DiaryPage = () => {
@@ -14,7 +14,9 @@ const DiaryPage = () => {
         <button
           className="button edit"
           onClick={() =>
-            navigate("/CreateDiary", { state: { date: date, diary: diary } })
+            navigate("/page/CreateDiary", {
+              state: { date: date, diary: diary },
+            })
           }
         >
           編集
