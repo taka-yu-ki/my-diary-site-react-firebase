@@ -3,6 +3,7 @@ import SignIn from "./components/SignIn";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
 import CalendarFunction from "./components/CalendarFunction";
+import ToDoFunction from "./components/TodoFunction";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -12,9 +13,14 @@ const App = () => {
     <div className="App">
       <Header />
       {user && user.uid === auth.currentUser.uid ? (
-        <div>
-          <CalendarFunction />
-        </div>
+        <>
+          <div>
+            <CalendarFunction />
+          </div>
+          <div>
+            <ToDoFunction />
+          </div>
+        </>
       ) : (
         <>
           <div>ログイン認証してみよう</div>

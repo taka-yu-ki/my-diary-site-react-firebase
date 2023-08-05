@@ -1,10 +1,10 @@
 import React from "react";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithRedirect } from "firebase/auth";
 import { auth, provider } from "../firebase";
 
 const SignIn = () => {
   const signInWithGoogle = () => {
-    signInWithPopup(auth, provider);
+    signInWithRedirect(auth, provider);
   };
   return (
     <div>

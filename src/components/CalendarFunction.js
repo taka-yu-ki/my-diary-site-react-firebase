@@ -37,11 +37,11 @@ const CalendarFunction = () => {
     if (value.getMonth() !== date.getMonth()) {
       return null;
     } else if (selectedDiary) {
-      navigate("/DiaryPage", {
+      navigate("/page/DiaryPage", {
         state: { date: date, diary: selectedDiary.data },
       });
     } else {
-      navigate("/CreateDiary", { state: { date: date } });
+      navigate("/page/CreateDiary", { state: { date: date } });
     }
   };
 
