@@ -2,12 +2,7 @@
   text-align: center;
 }
 
-.App-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+/* SignIn.js SignOut.js*/
 
 .authentication {
   font-size: 20px;
@@ -23,6 +18,31 @@
   background-color: #333;
 }
 
+/* button */
+
+.button-group {
+  display: flex;
+  justify-content: space-around;
+}
+
+.button {
+  padding: 10px 30px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete {
+  background-color: red;
+}
+
+.back {
+  background-color: #888;
+}
+
 /* CreateDiary.js */
 
 .diary-form {
@@ -35,7 +55,6 @@
 }
 
 .diary-form h2 {
-  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -61,43 +80,15 @@
   font-size: 20px;
   font-family: Meiryo, "Hiragino Kaku Gothic ProN", "MS PGothic", sans-serif;
   height: 500px;
-  background-color: #ffffff;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   white-space: pre-wrap;
   border-radius: 4px;
   resize: none;
 }
 
 .char-count {
-  font-size: 12px;
+  font-size: 14px;
 }
-
-.button-group {
-  display: flex;
-  justify-content: space-around;
-}
-
-.button {
-  padding: 10px 30px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.delete {
-  margin-left: 30px;
-  background-color: red;
-}
-
-.back {
-  margin-left: 30px;
-  background-color: #888;
-}
-
 /* DiaryPage.js */
 
 .diary {
@@ -105,30 +96,23 @@
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
-  position: relative; /* 追加：positionをrelativeに設定 */
+  border-radius: 4px;
+  background-color: #f5f5f5;
 }
 
 .diary-title {
-  font-size: 24px;
-  font-weight: bold;
   margin-bottom: 10px;
-  color: #333;
-  text-decoration: underline; /* 追加：下線を追加 */
+  text-decoration: underline;
 }
 
 .diary-text {
   font-size: 16px;
-  line-heitht: 1.5;
-  color: #555;
   white-space: pre-wrap;
 }
 
 /* Header.js */
 
 .header {
-  width: 100%;
   padding: 15px 0;
   display: flex;
   justify-content: space-between;
@@ -140,9 +124,6 @@
 .logo {
   margin-left: 16px;
 }
-.header p {
-  margin: 0;
-}
 
 .signOut {
   margin-right: 16px;
@@ -151,13 +132,13 @@
 /* Footer.js */
 
 .footer {
-  display: flex;
-  height: 200px;
-  text-align: center;
-  font-size: 15px;
   padding: 32px;
-  color: #777;
+  display: flex;
+  text-align: center;
+  height: 200px;
   background-color: #c0c0c0;
+  font-size: 15px;
+  color: #777;
   border-top: 1px solid #e5e7eb;
 }
 
@@ -184,13 +165,12 @@
   color: #000;
 }
 
-/* TodoFunction */
+/* TodoFunction.js */
 
 .todo {
   width: 90%;
   max-width: 100%;
   margin: 50px auto;
-  background: white;
   border: 1px solid #a0a096;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
@@ -199,6 +179,37 @@
   align-items: center;
   margin-top: 20px;
 }
+
+/* form */
+.task_form {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.task_value {
+  width: 70%;
+  padding: 8px;
+  margin-right: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.task_submit {
+  padding: 6px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.task_submit:hover {
+  background-color: #0056b3;
+}
+
+/* todoLists */
 
 .task_lists {
   width: 80%;
@@ -212,11 +223,10 @@
   width: 90%;
   padding: 0;
   margin: 0 auto;
-  max-height: 400px; /* 表示する最大の高さを指定 */
-  overflow-y: scroll; /* 縦方向にスクロールできるようにする */
+  max-height: 400px;
+  overflow-y: auto;
 }
 
-/* ToDoアイテム */
 .task_list {
   display: flex;
   align-items: center;
@@ -236,7 +246,6 @@
 .task_list input[type="checkbox"] {
   margin-right: 8px;
   transform: scale(1.5);
-  background-color: gray;
 }
 
 .task_list p {
@@ -253,38 +262,6 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-}
-
-/* フォーム */
-.task_form {
-  width: 100%;
-  margin-top: 20px;
-}
-
-.task_value {
-  width: 70%;
-  padding: 8px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-.task_submit {
-  padding: 6px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-left: 8px;
-}
-
-/* ToDoフォーム */
-
-.task_submit:hover {
-  background-color: #0056b3;
 }
 
 /* 編集中のinputタグ */

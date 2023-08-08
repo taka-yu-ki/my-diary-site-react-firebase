@@ -44,7 +44,7 @@
 .react-calendar__navigation {
   display: flex;
   height: 44px;
-  background-color: #eeeeee;
+  background-color: #eeeeee; /* navigationに色を加えた */
 }
 
 .react-calendar__navigation button {
@@ -65,9 +65,9 @@
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 20px; /* 曜日のfontを大きくした */
   border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; /* 曜日の上下にborderを加えた */
 }
 
 .react-calendar__month-view__weekdays__weekday {
@@ -92,7 +92,7 @@
 }
 
 .react-calendar__month-view__days__day.react-calendar__month-view__days__day--neighboringMonth {
-  background-color: #dddddd;
+  background-color: #dddddd; /* 別の月の日付のbackground-colorを加えた */
 }
 
 .react-calendar__year-view .react-calendar__tile,
@@ -103,11 +103,11 @@
 
 .react-calendar__tile {
   max-width: 100%;
-  padding: 50px 6.6667px;
   background: none;
   text-align: center;
   line-height: 16px;
-  position: relative;
+  padding: 50px 6.5px; /* 日付tileにpaddingを加えた */
+  position: relative; /* 各要素が相対的になるようにした */
 }
 
 .react-calendar__tile:disabled {
@@ -115,39 +115,30 @@
 }
 
 .react-calendar__tile:enabled:hover {
-  background-color: #d7eeff;
+  background-color: #d7eeff; /* tileをhoverした時のbackground-colorを指定した */
 }
 
 .react-calendar__tile--now {
-  background: #ffffcc;
+  background-color: #ffffcc; /* 当日のtileのbackground-colorを指定した */
 }
 
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
-  background: #ffffa9;
-}
-
-.react-calendar__tile--hasActive:enabled:hover,
-.react-calendar__tile--hasActive:enabled:focus {
-  background: #8ef1ff;
+  background: #fcfcac; /* 当日のtileをhover,focusしたときのbackground-colorを指定した */
 }
 
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #e6e6e6;
 }
 
-/*追加*/
-
-.react-calendar__month-view__days__day {
-  border: 1px solid #000; /* ボーダースタイルを指定 */
-}
-
+/* 日付の位置を各tileの左上に配置した */
 .react-calendar__tile abbr {
   position: absolute;
   top: 0;
   left: 0;
 }
 
+/* tileをhoverした時にtileの中央に＋がopacity0で表示される */
 .create-diary-tile::before {
   content: "+";
   position: absolute;
@@ -161,10 +152,21 @@
   transition: opacity 0.2s ease-in-out;
 }
 
+/* ＋がopacity1で表示される */
 .create-diary-tile:hover::before {
   opacity: 1;
 }
 
+/* 日記がある日付のtileのbackground-colorを指定した */
 .display-diary-tile {
   background-color: #2dff57;
+}
+
+.display-diary-tile:enabled:hover {
+  background-color: #1de044;
+}
+
+/* 日記がある日付のtileのタイトルのcolorを指定した */
+.display-diary-tile span {
+  color: #333;
 }

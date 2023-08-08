@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const DiaryPage = () => {
+  const [diary, setDiary] = useState();
+  const [date, setDate] = useState();
   const navigate = useNavigate();
-  const diary = useLocation().state.diary;
-  const date = useLocation().state.date;
+  const location = useLocation();
+
+  // ページ遷移元の情報をuseStateに格納する処理
+  useEffect(() => {
+    setDiary(location.state.diary);
+    setDate(location.state.date);
+  }, [location.state]);
+
   return (
     <div className="diary">
-      <h2 className="diary-title">{diary.title}</h2>
-      <p className="diary-text">{diary.text}</p>
+      <h2 className="diary-title">{diary?.title}</h2>
+      <p className="diary-text">{diary?.text}</p>
       <div className="button-group">
         <button
           className="button edit"

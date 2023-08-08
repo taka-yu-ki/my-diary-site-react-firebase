@@ -54,12 +54,13 @@ const CalendarFunction = () => {
     const selectedDiary = diaryData.find((diary) => diary.id === id);
 
     if (view === "month" && selectedDiary) {
-      return selectedDiary.data.title;
+      return <span>{selectedDiary.data.title}</span>;
     } else {
       return null;
     }
   };
 
+  // 各tileにclassNamesを指定して表示を分ける処理
   const addClassName = ({ date, view }) => {
     const day = String(date.getDate()).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
