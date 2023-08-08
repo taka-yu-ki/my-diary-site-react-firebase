@@ -8,18 +8,24 @@ import { useLocation } from "react-router-dom";
 const CreateDiary = () => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
+  const [date, setDate] = useState();
+  const [diary, setDiary] = useState();
   const [isEditMode, setIsEditMode] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   // ルート元から特定のデータを受け取り、変数に格納する処理
-  const date = useLocation().state.date;
-  const diary = useLocation().state.diary;
-  const day = String(date.getDate()).padStart(2, "0");
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const year = date.getFullYear();
+  useEffect(() => {
+    setDate(location.state.date);
+    setDiary(location.state.diary);
+  }, [location.state]);
+
+  const day = String(date?.getDate()).padStart(2, "0");
+  const month = String(date?.getMonth() + 1).padStart(2, "0");
+  const year = date?.getFullYear();
   const id = `${year}${month}${day}`;
 
-  const userId = auth.currentUser.uid;
+  const userId = auth.currentUser?.uid;
   const ref = doc(db, `users/${userId}/diaries/${id}`);
 
   // 文字数制限の変数
@@ -29,17 +35,13 @@ const CreateDiary = () => {
   // firebaseから既存のデータを取得し、編集モードに変更する処理
   useEffect(() => {
     const fetchDiaryData = async () => {
-      try {
-        const userId = auth.currentUser.uid;
-        const ref = doc(db, `users/${userId}/diaries/${id}`);
-        const snapshot = await getDoc(ref);
-        if (snapshot.exists()) {
-          setIsEditMode(true);
-          setTitle(diary.title);
-          setText(diary.text);
-        }
-      } catch (error) {
-        console.error("データの取得に失敗しました:", error);
+      const userId = auth.currentUser?.uid;
+      const ref = doc(db, `users/${userId}/diaries/${id}`);
+      const snapshot = await getDoc(ref);
+      if (snapshot.exists()) {
+        setIsEditMode(true);
+        setTitle(diary.title);
+        setText(diary.text);
       }
     };
     fetchDiaryData();
@@ -53,16 +55,14 @@ const CreateDiary = () => {
       title: title,
       text: text,
     };
-    try {
-      await setDoc(ref, data);
-      alert(`日記が${isEditMode ? "更新" : "追加"}されました！`);
-      setIsEditMode(false);
-      navigate("/");
-    } catch (error) {
-      alert(error.message);
-    }
+
+    await setDoc(ref, data);
+    alert(`日記が${isEditMode ? "更新" : "追加"}されました！`);
+    setIsEditMode(false);
+    navigate("/");
   };
 
+  // 特定の日記を削除する処理
   const deletePost = () => {
     return deleteDoc(ref).then(async () => {
       alert("記事を削除しました");
