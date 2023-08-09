@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD6v0AXw-snWqholKy6cXb6SmbYHR9Px28",
-  authDomain: "my-diary-site-react-firebase.firebaseapp.com",
+  authDomain: "takayukimuranaka.com",
   projectId: "my-diary-site-react-firebase",
   storageBucket: "my-diary-site-react-firebase.appspot.com",
   messagingSenderId: "967682586183",
