@@ -75,6 +75,7 @@ const CreateDiary = () => {
     <form className="diary-form" onSubmit={handleSubmit}>
       <h2> {isEditMode ? "日記更新" : "日記作成"}</h2>
       <div className="form-group">
+        <h3>{`${year}/${month}/${day}`}</h3>
         <label htmlFor="title">タイトル</label>
         <input
           type="text"

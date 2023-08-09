@@ -14,9 +14,16 @@ const DiaryPage = () => {
     setDate(location.state.date);
   }, [location.state]);
 
+  const day = String(date?.getDate()).padStart(2, "0");
+  const month = String(date?.getMonth() + 1).padStart(2, "0");
+  const year = date?.getFullYear();
+
   return (
     <div className="diary">
-      <h2 className="diary-title">{diary?.title}</h2>
+      <div className="diary-title-group">
+        <h2 className="diary-title">{diary?.title}</h2>
+        <h3>{`${year}/${month}/${day}`}</h3>
+      </div>
       <p className="diary-text">{diary?.text}</p>
       <div className="button-group">
         <button
